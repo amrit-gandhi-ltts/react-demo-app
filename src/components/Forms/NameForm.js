@@ -2,41 +2,55 @@ import React, { Component } from 'react';
 
 class NameForm extends Component {
     state = {
-        name: ''
+        firstName: '',
+        lastName: ''
     }
 
     changeHandler = (e) => {
         this.setState({
-            name: e.target.value
+            [e.target.name]: e.target.value
         })
-    }
+    }    
 
     submitForm = (e) => {
         e.preventDefault();
-        // console.log(`The form is submitted and the name is ${this.state.name}.`);
+        this.props.onSubmit(this.state);
+        // this.setState({
+        //     firstName: '',
+        //     lastName: ''
+        // })
     }
 
-    render() {  
-        const name = this.state.name;
-        let sentence;
-        
-        if(name) {
-            sentence = <p>The form is submitted and the name is <strong>{ this.state.name }</strong>.</p>
-        } else {
-            sentence = '';
-        }
+    render() { 
         return (
             <React.Fragment>
-                <form onClick={ this.submitForm }>
-                    <label>
-                        Name:
-                        <input type="text" placeholder="Enter name" 
-                            value={ this.state.name }  
-                            onChange={ this.changeHandler } />
-                    </label>
-                    <input type="submit" value="Submit" />
-                    { sentence }
-                </form>    
+                <div className="container">
+                    <div className="row">
+                        <div className="col-6 m-auto">
+                            <form>
+                                <div className="form-group">
+                                    <label>First Name:</label>
+                                    <input type="text" 
+                                        name="firstName"
+                                        className="form-control" 
+                                        placeholder="Enter first name"
+                                        onChange={ this.changeHandler } />
+                                </div>
+                                <div className="form-group">
+                                    <label>Last Name:</label>
+                                    <input type="text" 
+                                        name="lastName"
+                                        className="form-control" 
+                                        placeholder="Enter last name"
+                                        onChange={ this.changeHandler } />
+                                </div>                        
+                                <button type="submit" 
+                                    className="btn btn-primary btn-block" 
+                                    onClick={ this.submitForm }>Submit</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>    
             </React.Fragment>
         );
     }
