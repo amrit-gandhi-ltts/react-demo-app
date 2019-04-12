@@ -43,7 +43,19 @@ class BasicForm extends Component {
                                         className="form-control" 
                                         placeholder="Enter last name"
                                         onChange={ this.changeHandler } />
-                                </div>                        
+                                </div> 
+                                <div className="form-group">
+                                    <label>Pick your favorite flavor: </label>
+                                    <select className="custom-select form-control" 
+                                        name="options"
+                                        onChange={ this.changeHandler }>
+                                            <option value="">Choose Country</option>
+                                            <option value="India">India</option>
+                                            <option value="US">US</option>
+                                            <option value="Russia">Russia</option>
+                                            <option value="Germany">Germany</option>
+                                    </select> 
+                                </div>                                                          
                                 <button type="submit" 
                                     className="btn btn-primary btn-block" 
                                     onClick={ this.submitForm }>Submit</button>

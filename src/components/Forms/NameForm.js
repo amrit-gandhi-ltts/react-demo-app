@@ -17,11 +17,11 @@ class NameForm extends Component {
 
         if(this.state.fields.firstName && this.state.fields.lastName) {
         sentence = <p className="text-center">
-                        First name is <strong>{ this.state.fields.firstName.toUpperCase() }</strong> and last name is <strong>{ this.state.fields.lastName.toUpperCase() }</strong>.
+                        Person's name is <strong>{ this.state.fields.firstName.toUpperCase() } { this.state.fields.lastName.toUpperCase() }</strong> and he is from <strong>{ this.state.fields.options.toUpperCase() }.</strong>.
                     </p>
         } else {
         sentence = <p className="text-center">
-                        Please enter first and last name.
+                        Please enter first, last name and the country.
                     </p>
         }
 
