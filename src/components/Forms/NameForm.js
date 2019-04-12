@@ -9,7 +9,7 @@ class NameForm extends Component {
     onsubmitted = (fieldItems) => {
         this.setState({
             fields: fieldItems
-        })
+        })       
     }
 
     render() { 
