@@ -1,56 +1,34 @@
 import React, { Component } from 'react';
+import BasicForm from './BasicForm';
 
 class NameForm extends Component {
     state = {
-        firstName: '',
-        lastName: ''
+        fields: {}
     }
 
-    changeHandler = (e) => {
+    onsubmitted = (fieldItems) => {
         this.setState({
-            [e.target.name]: e.target.value
+            fields: fieldItems
         })
-    }    
-
-    submitForm = (e) => {
-        e.preventDefault();
-        this.props.onSubmit(this.state);
-        // this.setState({
-        //     firstName: '',
-        //     lastName: ''
-        // })
     }
 
     render() { 
+        let sentence;
+
+        if(this.state.fields.firstName && this.state.fields.lastName) {
+        sentence = <p className="text-center">
+                        First name is <strong>{ this.state.fields.firstName.toUpperCase() }</strong> and last name is <strong>{ this.state.fields.lastName.toUpperCase() }</strong>.
+                    </p>
+        } else {
+        sentence = <p className="text-center">
+                        Please enter first and last name.
+                    </p>
+        }
+
         return (
             <React.Fragment>
-                <div className="container">
-                    <div className="row">
-                        <div className="col-6 m-auto">
-                            <form>
-                                <div className="form-group">
-                                    <label>First Name:</label>
-                                    <input type="text" 
-                                        name="firstName"
-                                        className="form-control" 
-                                        placeholder="Enter first name"
-                                        onChange={ this.changeHandler } />
-                                </div>
-                                <div className="form-group">
-                                    <label>Last Name:</label>
-                                    <input type="text" 
-                                        name="lastName"
-                                        className="form-control" 
-                                        placeholder="Enter last name"
-                                        onChange={ this.changeHandler } />
-                                </div>                        
-                                <button type="submit" 
-                                    className="btn btn-primary btn-block" 
-                                    onClick={ this.submitForm }>Submit</button>
-                            </form>
-                        </div>
-                    </div>
-                </div>    
+                <BasicForm onSubmit={ this.onsubmitted } />
+                { sentence }
             </React.Fragment>
         );
     }
