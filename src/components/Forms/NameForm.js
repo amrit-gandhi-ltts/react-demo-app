@@ -3,32 +3,46 @@ import BasicForm from './BasicForm';
 
 class NameForm extends Component {
     state = {
-        fields: {}
+        firstName: '',
+        lastName: '',
+        options: ''
     }
 
-    onsubmitted = (fieldItems) => {
-        this.setState({
-            fields: fieldItems
-        })       
+    onsubmitted = () => {
+        
     }
+
+    changeHandler = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+    } 
 
     render() { 
+        const { firstName, lastName, options } = this.state;
+        const values = { firstName, lastName, options };
         let sentence;
 
-        if(this.state.fields.firstName && this.state.fields.lastName) {
-        sentence = <p className="text-center">
-                        Person's name is <strong>{ this.state.fields.firstName.toUpperCase() } { this.state.fields.lastName.toUpperCase() }</strong> and he is from <strong>{ this.state.fields.options.toUpperCase() }.</strong>.
+        if(values.firstName && values.lastName && values.options) {
+            sentence = <p>
+                        First name: { values.firstName } < br/>
+                        Last Name: { values.lastName }< br/> 
+                        Country: { values.options }
                     </p>
         } else {
-        sentence = <p className="text-center">
-                        Please enter first, last name and the country.
-                    </p>
+            sentence = ''
         }
-
+        
         return (
             <React.Fragment>
-                <BasicForm onSubmit={ this.onsubmitted } />
-                { sentence }
+                <BasicForm  
+                    onSubmit= { this.onsubmitted }
+                    changeHandler= { this.changeHandler }
+                    values={ values }
+                />
+                <div className="text-center">
+                    { sentence }
+                </div>
             </React.Fragment>
         );
     }

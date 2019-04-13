@@ -1,24 +1,9 @@
 import React, { Component } from 'react';
 
 class BasicForm extends Component {
-    state = {
-        firstName: '',
-        lastName: ''
-    }
-
-    changeHandler = (e) => {
-        this.setState({
-            [e.target.name]: e.target.value
-        })
-    }    
-
     submitForm = (e) => {
         e.preventDefault();
-        this.props.onSubmit(this.state);
-        // this.setState({
-        //     firstName: '',
-        //     lastName: ''
-        // })
+        this.props.onSubmit();
     }
      
     render() {
@@ -34,7 +19,8 @@ class BasicForm extends Component {
                                         name="firstName"
                                         className="form-control" 
                                         placeholder="Enter first name"
-                                        onChange={ this.changeHandler } />
+                                        onChange={ this.props.changeHandler }
+                                        defaultValue= { this.props.values.firstName } />
                                 </div>
                                 <div className="form-group">
                                     <label>Last Name:</label>
@@ -42,13 +28,14 @@ class BasicForm extends Component {
                                         name="lastName"
                                         className="form-control" 
                                         placeholder="Enter last name"
-                                        onChange={ this.changeHandler } />
+                                        onChange={ this.props.changeHandler } 
+                                        defaultValue= { this.props.values.lastName } />
                                 </div> 
                                 <div className="form-group">
-                                    <label>Pick your favorite flavor: </label>
+                                    <label>Country: </label>
                                     <select className="custom-select form-control" 
                                         name="options"
-                                        onChange={ this.changeHandler }>
+                                        onChange={ this.props.changeHandler }>
                                             <option value="">Choose Country</option>
                                             <option value="India">India</option>
                                             <option value="US">US</option>

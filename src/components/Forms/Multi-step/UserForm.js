@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import FormUserDetails from './FormUserDetails';
+import FormPersonalDetails from './FormPersonalDetails';
+import Confirm from './Confirm';
+import Success from './Success';
 
 export default class UserForm extends Component {
     state = {
@@ -26,9 +29,9 @@ export default class UserForm extends Component {
         })
     }
 
-    changehandler = (input, e) => {
+    changehandler = (e) => {
         this.setState({
-            [input]: e.target.value
+            [e.target.name]: e.target.value
         })
     }
 
@@ -51,7 +54,34 @@ export default class UserForm extends Component {
             case 2:
                 return (
                     <React.Fragment>
-                        <h1>Personal details</h1>
+                        <FormPersonalDetails 
+                            nextStep={ this.nextStep } 
+                            prevStep={ this.prevStep }
+                            changehandler={this.changehandler}
+                            values={values}
+                        />
+                    </React.Fragment> 
+                )
+            case 3:
+                return (
+                    <React.Fragment>
+                        <Confirm 
+                            nextStep={ this.nextStep } 
+                            prevStep={ this.prevStep }
+                            values={values}
+                        />
+                    </React.Fragment> 
+                )
+            case 4:
+                return (
+                    <React.Fragment>
+                        <Success />
+                    </React.Fragment> 
+                )
+            default:
+                return (
+                    <React.Fragment>
+                        <h1>Default Message</h1>
                     </React.Fragment> 
                 )
         }

@@ -10,7 +10,7 @@ class App extends Component {
   render() { 
     return (
       <React.Fragment>
-        <UserForm />
+        <NameForm />
       </React.Fragment>
     );
   }

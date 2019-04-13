@@ -7,7 +7,8 @@ export default class FormUserDetails extends Component {
     }
 
     render() {
-        const { values, handler } = this.props;
+        // destructuring
+        const { values, changehandler } = this.props;
         return (
             <React.Fragment>
                 <div className="container">
@@ -20,7 +21,7 @@ export default class FormUserDetails extends Component {
                                         name="firstname"
                                         className="form-control" 
                                         placeholder="Enter first name"
-                                        onChange={ handler }
+                                        onChange={ changehandler }
                                         defaultValue={ values.firstname } />
                                 </div>
                                 <div className="form-group">
@@ -29,7 +30,7 @@ export default class FormUserDetails extends Component {
                                         name="lastname"
                                         className="form-control" 
                                         placeholder="Enter last name"
-                                        onChange={ handler }
+                                        onChange={ changehandler }
                                         defaultValue={ values.lastname } />
                                 </div> 
                                 <div className="form-group">
@@ -38,7 +39,7 @@ export default class FormUserDetails extends Component {
                                         name="email"
                                         className="form-control" 
                                         placeholder="Enter email"
-                                        onChange={ handler } 
+                                        onChange={ changehandler } 
                                         defaultValue={ values.email }/>
                                 </div>                                                                                          
                                 <button type="submit" 
