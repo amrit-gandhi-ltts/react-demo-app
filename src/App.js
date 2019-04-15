@@ -5,12 +5,13 @@ import Toggle from './components/Toggle';
 import Login from './components/Login/Login';
 import NameForm from './components/Forms/NameForm';
 import UserForm from './components/Forms/Multi-step/UserForm';
+import ImageSearch from './components/Image-search/ImageSearch';
 
 class App extends Component {
   render() { 
     return (
       <React.Fragment>
-        <NameForm />
+        <ImageSearch />
       </React.Fragment>
     );
   }

@@ -5,11 +5,14 @@ class NameForm extends Component {
     state = {
         firstName: '',
         lastName: '',
-        options: ''
+        options: '',
+        showResult: false
     }
 
     onsubmitted = () => {
-        
+        this.setState({
+            showResult: true
+        })
     }
 
     changeHandler = (e) => {
@@ -41,7 +44,7 @@ class NameForm extends Component {
                     values={ values }
                 />
                 <div className="text-center">
-                    { sentence }
+                    { this.state.showResult ? sentence: null }
                 </div>
             </React.Fragment>
         );
