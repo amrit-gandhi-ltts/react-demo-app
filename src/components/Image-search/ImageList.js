@@ -23,7 +23,7 @@ export default class ImageList extends Component {
         return (
         <React.Fragment>
             <h4>Showing { numbers } image results for { text }</h4>            
-            <div className="row mb-5 mt-2">
+            <div className="row mb-5 mt-5">
                 { imageListContent }
             </div>
         </React.Fragment>

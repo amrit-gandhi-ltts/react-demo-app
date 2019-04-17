@@ -1,4 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Courgette|Roboto:400,700" rel="stylesheet');
+@import url('https://use.fontawesome.com/releases/v5.8.1/css/all.css');
 
 body {
   margin: 0;
@@ -15,4 +16,11 @@ code {
 
 .text-slanted {
   font-family: 'Courgette', cursive;
+}
+
+h1 {
+  font-size: 30px !important;
+  text-align: center;
+  font-weight: 600 !important;
+  margin: 20px 0 !important;
 }
