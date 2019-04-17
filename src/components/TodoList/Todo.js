@@ -7,27 +7,31 @@ export default class Todo extends Component {
     state = {
         items: [],
         id: uuid(),
-        item: '',
-        isEdit: false
+        title: '',
+        isEdit: false,
+        disabled: true
     }
 
     changeHandler = (e) => {
         this.setState({
             [e.target.name]: e.target.value
         })
+        if(this.state.title !== null) {
+            this.state.disabled = false
+        }
     }
 
     onSubmit = (e) => {
         e.preventDefault();
         const newItem = {
             id: this.state.id,
-            item: this.state.item
+            title: this.state.title
         }
         const updateditems = [...this.state.items, newItem];
 
         this.setState({
             items: updateditems,
-            item: '',
+            title: '',
             id: uuid(), 
             isEdit: false
         })
@@ -54,7 +58,7 @@ export default class Todo extends Component {
 
         this.setState({
             items: filteredItems,
-            item: selectedItem.item,
+            title: selectedItem.title,
             id: id,
             isEdit: true
         })
@@ -70,10 +74,11 @@ export default class Todo extends Component {
                 <div className="row">
                     <div className="col">
                         <TodoInput 
-                            item={ this.state.item }
+                            item={ this.state.title }
                             changeHandler={ this.changeHandler }
                             onSubmit={ this.onSubmit }
-                            editItem={ this.state.isEdit } />
+                            editItem={ this.state.isEdit }
+                            disabled={ this.state.disabled } />
                     </div>
                 </div>
                 <div className="row">

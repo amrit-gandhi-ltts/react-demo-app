@@ -10,7 +10,7 @@ export default class TodoList extends Component {
             itemsList = (
                 items.map(item => (
                     <TodoItem 
-                        item={ item.item }
+                        item={ item.title }
                         key={ item.id }
                         onDelete={ () => handleDelete(item.id) }
                         onEdit={ () => handleEdit(item.id) } />
