@@ -3,7 +3,7 @@ import TodoItem from './TodoItem';
 
 export default class TodoList extends Component {
     render() {
-        const { items, clearList, handleDelete, handleEdit } = this.props;
+        const { items, clearList, handleDelete, handleEdit, deleteItem } = this.props;
         let itemsList;
 
         if(items) {

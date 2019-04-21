@@ -7,12 +7,13 @@ import NameForm from './components/Forms/NameForm';
 import UserForm from './components/Forms/Multi-step/UserForm';
 import ImageSearch from './components/Image-search/ImageSearch';
 import Todo from './components/TodoList/Todo';
+import Posts from './components/Posts/Posts';
 
 class App extends Component {
   render() { 
     return (
       <React.Fragment>
-        <Todo />
+        <Posts />
       </React.Fragment>
     );
   }

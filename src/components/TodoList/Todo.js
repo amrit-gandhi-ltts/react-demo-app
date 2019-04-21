@@ -9,7 +9,8 @@ export default class Todo extends Component {
         id: uuid(),
         title: '',
         isEdit: false,
-        disabled: true
+        disabled: true,
+        isDelete: false
     }
 
     changeHandler = (e) => {
@@ -17,7 +18,9 @@ export default class Todo extends Component {
             [e.target.name]: e.target.value
         })
         if(this.state.title !== null) {
-            this.state.disabled = false
+            this.setState({
+                disabled: false
+            })
         }
     }
 
@@ -33,7 +36,8 @@ export default class Todo extends Component {
             items: updateditems,
             title: '',
             id: uuid(), 
-            isEdit: false
+            isEdit: false,
+            disabled: true
         })
     }
 
@@ -43,17 +47,20 @@ export default class Todo extends Component {
         })
     }
 
-    handleDelete = (id) => {        
+    handleDelete = (id) => { 
+        // filter items whose id doesn't match with item id       
         const filteredItems = this.state.items.filter(item => item.id !== id);
 
         this.setState({
-            items: filteredItems
+            items: filteredItems,
+            isDelete: true
         })
     }
 
     handleEdit = (id) => {
         const filteredItems = this.state.items.filter(item => item.id !== id);
 
+        // find the item whose id matches with item id
         const selectedItem = this.state.items.find(item => item.id === id);
 
         this.setState({

@@ -13,10 +13,10 @@ export default class TodoItem extends Component {
                 </div>
                 <div>
                     <span className="btn btn-primary" onClick={ onEdit }>
-                        <i className="fas fa-edit"></i>
+                        Edit
                     </span>
                     <span className="btn btn-danger" onClick={ onDelete }>
-                        <i className="fas fa-trash-alt"></i>
+                        Delete
                     </span>
                 </div>
             </li>
