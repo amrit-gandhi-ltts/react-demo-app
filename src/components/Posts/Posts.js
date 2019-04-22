@@ -2,14 +2,14 @@ import React, { Component } from 'react';
 import Post from './Post';
 import AddPost from './AddPost';
 import axios from 'axios';
+import './Posts.css';
 
 class Posts extends Component {
   state = {
     url: 'https://jsonplaceholder.typicode.com/posts',
     posts: [],
-    id: 0,
-    title: '',
-    body: ''
+    post: '',
+    id: null
   }
 
   componentDidMount() {
@@ -25,7 +25,23 @@ class Posts extends Component {
   }
 
   clickHandler = (id) => {
-    console.log(id)
+    const filteredPost = this.state.posts.filter(post => post.id === id);
+    
+    this.setState({
+      post: filteredPost,
+      id: id
+    })
+  }
+
+  changeHandler = (e) => {
+    this.setState({
+      [e.target.name]: e.target.value
+    })
+  }
+
+  onSubmit = (e) => {
+    e.preventDefault();
+    console.log(this.state, 'submitted')
   }
 
   render() {
@@ -35,8 +51,7 @@ class Posts extends Component {
     postsList = posts.map(post => (
       <div className="col-4 card m-2" key={ post.id } onClick={ () => this.clickHandler(post.id) }>
         <div className="card-body">
-          <h5 className="card-title">{ post.title }</h5>
-          <p className="card-text">{ post.body }</p>
+          <h5 className="card-title color-red">{ post.title }</h5>
         </div>
       </div>
     ))
@@ -44,14 +59,19 @@ class Posts extends Component {
     return(
       <React.Fragment>
         <h1>Posts</h1>
+        <h4>Select any post</h4>
         <div className="container">
           <div className="row d-flex justify-content-center">
             { postsList }
           </div>
 
-          <Post />
+          <Post  
+            post={ this.state.post } />
 
-          <AddPost />
+          <AddPost 
+            onChange={ this.changeHandler }
+            onSubmit={ this.onSubmit }
+            data={ this.state } />
         </div>
       </React.Fragment>
     )

@@ -2,17 +2,25 @@ import React, { Component } from 'react';
 
 class Post extends Component {
   render() {
-    return(
-      <React.Fragment>
-        <h1>Post</h1>
-        <div className="row d-flex justify-content-center">
+    const { post } = this.props;
+    let postsList;
+
+    if(post) {
+      postsList = post.map(item => (
+        <div className="row d-flex justify-content-center" key={ item.id }>
+          <h1 className="col-8">{ post ? item.title : 'Select any Post above'}</h1>
           <div className="col-8 card m-2">
             <div className="card-body">
-              <h5 className="card-title">Card title</h5>
-              <p className="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
+              <p className="card-text">{ item.body }</p>
             </div>
           </div>
         </div>
+      ))
+    }
+    
+    return(
+      <React.Fragment>
+        { postsList }
       </React.Fragment>
     )
   }
