@@ -52,12 +52,12 @@ export default class GithubSearch extends Component {
                 searchInput={ this.searchInput } />
 
             <UserInfo 
-                bio={ this.state.bio } />
+                bio={ this.state.bio }
+                repos={ this.state.repos } />
 
             <UserReposInfo 
                 bio={ this.state.bio }
                 repos={ this.state.repos } />
-            
         </React.Fragment>
         )
     }

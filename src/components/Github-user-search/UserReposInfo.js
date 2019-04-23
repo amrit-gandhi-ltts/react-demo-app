@@ -2,12 +2,12 @@ import React from 'react';
 
 const UserReposInfo = (props) => {
     const { bio, repos } = props;
-    let userReposInfo;
+    let userReposInfo, userReposList;
 
-    if(repos) {
-        userReposInfo = (
+    if(repos && bio) {
+        userReposList = (
             repos.map(repo => (
-                <li className="list-group-item">
+                <li className="list-group-item" key={ repo.id }>
                     <div className="row">
                         <div className="col-sm-9">
                             <h5>
@@ -24,25 +24,30 @@ const UserReposInfo = (props) => {
                         </div>
                     </div>
                 </li>
-            ))
+            )
+        ))
+
+        userReposInfo = (
+            <div className="card">
+                <div className="card-header">
+                    { bio.name }
+                </div>
+                <div className="card-body">
+                    <div className="row">
+                        <ul className="list-group">
+                            { userReposList }
+                        </ul>
+                    </div>
+                </div>
+            </div>
         )
     }
+
     return (
         <React.Fragment>
             <div className="row">
                 <div className="col-12 mt-3 mb-3">
-                    <div className="card">
-                        <div className="card-header">
-                            { bio ? 'Repos of bio.name' : '' }
-                        </div>
-                        <div className="card-body">
-                            <div className="row">
-                                <ul className="list-group">
-                                    { userReposInfo }
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    { userReposInfo }
                 </div>
             </div>
         </React.Fragment>

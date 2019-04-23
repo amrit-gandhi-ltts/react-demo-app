@@ -1,7 +1,7 @@
 import React from 'react';
 
 const UserInfo = (props) => {
-    const { bio } = props;
+    const { bio, repos } = props;
     let userInfo;
     
     if(bio) {
