@@ -3,7 +3,9 @@ import React from 'react';
 const UserInfo = (props) => {
     const { bio, repos } = props;
     let userInfo;
-    
+    let date = new Date(bio.created_at);
+    let formattedDate = `${date.getDate()}-${date.getMonth() + 1}-${date.getFullYear()}`;
+
     if(bio) {
         userInfo = (
             <div className="card">
@@ -44,7 +46,7 @@ const UserInfo = (props) => {
                                     <strong>Bio: </strong> { bio.bio }
                                 </li>
                                 <li className="list-group-item">
-                                    <strong>Member Since: </strong> { bio.created_at }
+                                    <strong>Member Since: </strong> { formattedDate }
                                 </li>
                                 <li className="list-group-item">
                                     <strong>Blog: </strong> { bio.blog }

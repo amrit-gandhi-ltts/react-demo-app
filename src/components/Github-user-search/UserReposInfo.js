@@ -14,7 +14,11 @@ const UserReposInfo = (props) => {
                                 <a href="#">{ repo.name }</a>
                             </h5>
                             <p className="m-0">{ repo.description }</p>
-                            <p className="m-0">Last updated on { repo.updated_at }</p>
+                            <p className="m-0">Last updated on 
+                                { 
+                                    ` ${new Date(repo.updated_at).getDate()}-${new Date(repo.updated_at).getMonth() + 1}-${new Date(repo.updated_at).getFullYear()}`
+                                }
+                            </p>
                         </div> 
                         <div className="col-sm-3">
                             <div className="stats">
