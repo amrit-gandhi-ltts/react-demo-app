@@ -76,7 +76,7 @@ export default class Todo extends Component {
         <React.Fragment>
             <div className="container">
                 <div className="row">
-                    <h1 className="col">Todo Component</h1>
+                    <h1 className="col">Todo App</h1>
                 </div>
                 <div className="row">
                     <div className="col">

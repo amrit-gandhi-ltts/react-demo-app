@@ -1,5 +1,35 @@
-.Navbar {
+.navbar {
+    background: #ddd;
+    height: 100vh;
+    width: 250px;
+    position: fixed !important;
+    align-items: flex-start !important;
+    flex-direction: column !important;
+}
+
+.navbar-nav {
+    margin: 0;
+    padding: 0;
+    flex-direction: column !important;
     width: 100%;
+}
+
+.navbar-nav li {
+    border-bottom: 1px solid #999;
+    padding: 12px 0 2px;
+}
+
+.navbar-nav li:last-child {
+    border-bottom: none;
+    padding: 12px 0 2px;
+}
+
+.navbar-nav li a {
+    color: #fff
+}
+
+.navbar-nav li a:hover {
+    text-decoration: none;
 }
 
 /* .list-group-item {

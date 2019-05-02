@@ -20,7 +20,7 @@ export default class TodoList extends Component {
 
         return (
         <React.Fragment>
-            <h1>Todo List Component</h1>
+            <h1>Task List</h1>
             <ul className="list-group mt-3 mb-3">
                 { itemsList }
             </ul>

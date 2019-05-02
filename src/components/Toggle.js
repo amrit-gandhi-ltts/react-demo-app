@@ -21,12 +21,12 @@ class Toggle extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>{ this.state.isToggleOn ? 'TOGGLE ON' : 'TOGGLE OFF' }</h1>
                 <button href="#" onClick={ this.handleclick }>
                     { this.state.isToggleOn ? 'ON' : 'OFF' }
                 </button>
-            </div>
+            </React.Fragment>
         );
     }
 }

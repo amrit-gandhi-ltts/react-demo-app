@@ -20,12 +20,12 @@ class Time extends Component {
 
     render() {
         return (
-            <div>
+            <React.Fragment>
                 <h1>Time</h1>
                 <p>
                     The time is { this.state.date.toLocaleTimeString() }.
                 </p>
-            </div>
+            </React.Fragment>
         );
     }
 }

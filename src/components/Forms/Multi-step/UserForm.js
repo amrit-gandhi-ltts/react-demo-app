@@ -44,6 +44,7 @@ export default class UserForm extends Component {
             case 1:
                 return (                    
                     <React.Fragment>
+                        <h1>Multi-step Form</h1>
                         <FormUserDetails 
                             nextStep={ this.nextStep } 
                             changehandler={this.changehandler}
@@ -54,6 +55,7 @@ export default class UserForm extends Component {
             case 2:
                 return (
                     <React.Fragment>
+                        <h1>Multi-step Form</h1>
                         <FormPersonalDetails 
                             nextStep={ this.nextStep } 
                             prevStep={ this.prevStep }
@@ -65,6 +67,7 @@ export default class UserForm extends Component {
             case 3:
                 return (
                     <React.Fragment>
+                        <h1>Multi-step Form</h1>
                         <Confirm 
                             nextStep={ this.nextStep } 
                             prevStep={ this.prevStep }
