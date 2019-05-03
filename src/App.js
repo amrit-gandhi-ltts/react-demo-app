@@ -12,6 +12,7 @@ import ImageSearch from './components/Image-search/ImageSearch';
 import Todo from './components/TodoList/Todo';
 import Posts from './components/Posts/Posts';
 import GithubSearch from './components/Github-user-search/GithubSearch';
+import Example from './components/Example';
 import NotFound from './components/NotFound';
 
 class App extends Component {
@@ -35,6 +36,7 @@ class App extends Component {
                 <Route path="/todo" component={ Todo } />
                 <Route path="/posts" component={ Posts } />
                 <Route path="/github-search" component={ GithubSearch } />
+                <Route path="/example" component={ Example } />
                 <Route path="*" component={ NotFound }/>
               </Switch>
             </div>
