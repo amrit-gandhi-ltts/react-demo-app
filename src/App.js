@@ -37,7 +37,7 @@ class App extends Component {
                 <Route path="/posts" component={ Posts } />
                 <Route path="/github-search" component={ GithubSearch } />
                 <Route path="/example" component={ Example } />
-                <Route path="*" component={ NotFound }/>
+                <Route path="*" component={ NotFound } />
               </Switch>
             </div>
           </div>
