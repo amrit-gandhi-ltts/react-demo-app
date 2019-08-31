@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import './App.css';
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { HashRouter, Route, Switch } from 'react-router-dom';
 import Home from './components/Home';
 import Navbar from './components/Navbar/Navbar';
 import Time from './components/Time';
@@ -18,7 +18,7 @@ import NotFound from './components/NotFound';
 class App extends Component {
   render() { 
     return (
-      <BrowserRouter>
+      <HashRouter>
         <div className="container-fluid">
           <div className="row">
             <div className="col-3 p-0">
@@ -42,7 +42,7 @@ class App extends Component {
             </div>
           </div>
         </div>
-      </BrowserRouter>
+      </HashRouter>
     );
   }
 }
