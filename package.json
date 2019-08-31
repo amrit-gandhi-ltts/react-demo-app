@@ -2,7 +2,7 @@
   "name": "react-demo-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://aamrits.github.io/react-demo-app/",
+  "homepage": "https://aamrits.github.io/react-demo-app",
   "dependencies": {
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
